@@ -17,7 +17,7 @@
   {% endblock %}
 
 </head>
-<body style="background-image: url('static/images/bg1.jpg');">
+<body style="background-image: url('{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'images/bg1.jpg' %}');">
 
   {% block content %}
   
