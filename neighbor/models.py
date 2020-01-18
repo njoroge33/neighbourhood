@@ -33,3 +33,9 @@ class Profile(models.Model):
             profile = Profile.objects.created(user=kwargs['instance'])
 
             post_save.connect(Profile, sender=User)
+
+class Business(models.Model):
+    name = models.CharField(max_length = 100)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete = models.CASCADE)
+    bussiness_email = models.CharField(max_length = 50)
