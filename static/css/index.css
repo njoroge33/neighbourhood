@@ -1,0 +1,12 @@
+body {
+    height:100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+form {
+    margin-top: 10%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    font-family: 'Pattaya', sans-serif;
+}
