@@ -45,3 +45,9 @@ class Business(models.Model):
     business_photo = models.ImageField(upload_to = 'posts/')
     neighborhood = models.ForeignKey(Neighborhood, on_delete = models.CASCADE)
     bussiness_email = models.CharField(max_length = 100)
+
+    @classmethod
+    def get_business(cls):
+        business = cls.objects.all()
+        return business
+

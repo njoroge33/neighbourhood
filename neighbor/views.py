@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, ProfileForm, BusinessForm
-from .models import Profile
+from .models import Profile, Business
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def home(request):
     current_user = request.user
+    businesses = Business.get_business()
     
-    return render(request, 'index.html', {'current_user':current_user})
+    return render(request, 'index.html', {'current_user':current_user, 'businesses':businesses})
 
 def signup(request):
     name = 'Signup'
@@ -41,7 +42,7 @@ def update_profile(request):
     else:
         form = ProfileForm(instance=request.user.profile)
         args = {}
-        args.update(csrf(request))
+        # args.update(csrf(request))
         args['form'] = form
     return render(request, 'update_profile.html', {'current_user':current_user, 'form':form})
 
