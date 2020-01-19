@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, ProfileForm
+from .forms import SignUpForm, ProfileForm, BusinessForm
 from .models import Profile
 from django.contrib.auth.forms import UserCreationForm
 
@@ -41,7 +41,20 @@ def update_profile(request):
     else:
         form = ProfileForm(instance=request.user.profile)
         args = {}
-        # args.update(csrf(request))
+        args.update(csrf(request))
         args['form'] = form
     return render(request, 'update_profile.html', {'current_user':current_user, 'form':form})
 
+def new_business(request):
+    current_user = request.user
+
+    if request.method == 'POST':
+        form = BusinessForm(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            business.user= current_user
+            business.save()
+        return redirect('home')
+    else:
+        form = BusinessForm()
+    return render(request, 'business.html', {'current_user':current_user, 'form':form})
