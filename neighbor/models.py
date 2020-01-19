@@ -57,3 +57,8 @@ class Post(models.Model):
     post_image = models.ImageField(upload_to = 'posts/')
     caption = models.CharField(max_length=150)
 
+    @classmethod
+    def get_posts(cls):
+        posts = cls.objects.all()
+        return posts
+

@@ -12,7 +12,7 @@
                 src="{{request.scheme}}://{{request.META.HTTP_HOST}}{% static 'images/logo.jpg' %}" class="img-fluid"
                 style="height:70px;width:70px;margin-bottom:2%;">NEIGHBOURHOOD</a>
         {% if user.is_authenticated %}
-        <a href="#" class="nav-link">Add post</a>
+        <a href="/newpost" class="nav-link">Add post</a>
         <a href="/newbusiness" class="nav-link">Add business</a>
         <a href="/admin" class="nav-link">Create neighborhood</a>
         <a href="/logout" class="nav-link">Logout</a>

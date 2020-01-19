@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, ProfileForm, BusinessForm, PostForm
-from .models import Profile, Business
+from .models import Profile, Business, Post
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def home(request):
     current_user = request.user
     businesses = Business.get_business()
+    posts = Post.get_posts()
+
     
-    return render(request, 'index.html', {'current_user':current_user, 'businesses':businesses})
+    return render(request, 'index.html', {'current_user':current_user, 'businesses':businesses, 'posts':posts})
 
 def signup(request):
     name = 'Signup'
