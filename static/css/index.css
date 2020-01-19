@@ -10,3 +10,13 @@ form {
     padding-bottom: 10%;
     font-family: 'Pattaya', sans-serif;
 }
+
+.navbar-header>a, .navbar-header>a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar-header>a:first-child{
+    font-family: 'Pattaya', sans-serif;
+    font-size: 22px;
+}
