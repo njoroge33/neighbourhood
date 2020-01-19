@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm, ProfileForm, BusinessForm, PostForm
 from .models import Profile, Business, Post
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url='/login/')
 def home(request):
     current_user = request.user
     businesses = Business.get_business()
@@ -24,12 +26,13 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form, 'name':name})
 
-
+@login_required(login_url='/login/')
 def profile(request):
     current_user = request.user
     
     return render(request, 'profile.html', {'current_user':current_user,})
 
+@login_required(login_url='/login/')
 def update_profile(request):
     current_user = request.user
     profile = Profile(user=request.user)
@@ -48,6 +51,7 @@ def update_profile(request):
         args['form'] = form
     return render(request, 'update_profile.html', {'current_user':current_user, 'form':form})
 
+@login_required(login_url='/login/')
 def new_business(request):
     current_user = request.user
 
@@ -62,6 +66,7 @@ def new_business(request):
         form = BusinessForm()
     return render(request, 'business.html', {'current_user':current_user, 'form':form})
 
+@login_required(login_url='/login/')
 def new_post(request):
     current_user = request.user
    
