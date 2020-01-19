@@ -24,3 +24,9 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'registration/signup.html', {'form': form, 'name':name})
 
+
+def profile(request):
+    current_user = request.user
+    
+    return render(request, 'profile.html', {'current_user':current_user,})
+

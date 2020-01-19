@@ -19,6 +19,7 @@ class Neighborhood(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,)
     name = models.CharField(max_length = 100)
+    profile_photo = models.ImageField(upload_to = 'posts/')
     national_id = models.CharField(max_length = 9)
     neighborhood = models.ForeignKey(Neighborhood, on_delete = models.CASCADE)
 
