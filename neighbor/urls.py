@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.signup, name='signup'),
     re_path(r'login/', LoginView.as_view(), name='login'),
     re_path(r'^profile/', views.profile, name='profile'),
+    re_path(r'^updateprofile/', views.update_profile, name='update_profile'),
 ]
 
 if settings.DEBUG:

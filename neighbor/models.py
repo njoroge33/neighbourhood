@@ -21,7 +21,7 @@ class Profile(models.Model):
     name = models.CharField(max_length = 100)
     profile_photo = models.ImageField(upload_to = 'posts/')
     national_id = models.CharField(max_length = 9)
-    neighborhood = models.ForeignKey(Neighborhood, on_delete = models.CASCADE)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete = models.CASCADE, null=True, blank=True)
 
     def save_profile(self):
         self.save()

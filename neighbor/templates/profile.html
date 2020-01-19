@@ -2,11 +2,11 @@
 
 {%block content%}
 {{block.super}}
-<div class="container text-center">
-    <div class="card bg-light" style="margin-top:5%;padding-top: 3%;padding-bottom: 3%;">
+<div class="container">
+    <div class="card" style="margin-top:10vh;padding-top: 3%;padding-bottom: 3%;background-color: rgba(255, 255, 255, 0.7);">
         <div class="row">
 
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-xs-12 col-sm-6 col-md-4">
                 {%if user.profile.profile_photo%}
                 <img class="rounded-circle" src="{{user.profile.profile_photo.url}}" style="height:200px;width: 200px;"
                     alt="No profile pic">
@@ -16,13 +16,15 @@
             </div>
 
 
-            <div class="col-xs-6 col-sm-6 col-md-3">
+            <div class="col-xs-6 col-sm-6 col-md-6">
                 <strong style="font-size:25px;">{{current_user.username | title}}</strong>
                 <a href='/updateprofile' class="btn btn-primary text-white">Edit profile</a>
-                {%if user.profile.bio %}
-                <p style="font-size:23px;"><strong>Bio:</strong> {{user.profile.bio}}</p>
+                {%if user.profile.name %}
+                <p style="font-size:23px;"><strong>Name:</strong> {{user.profile.name}}</p>
+                <p style="font-size:23px;"><strong>ID no.:</strong> {{user.profile.national_id}}</p>
+                <p style="font-size:23px;"><strong>Neighborhood:</strong> {{user.profile.neighborhood}}</p>
                 {%else%}
-                <p>No bio!</p>
+                <p>No name!</p>
                 {%endif%}
             </div>
 
