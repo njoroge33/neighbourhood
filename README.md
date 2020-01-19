@@ -47,6 +47,6 @@ A web application that allows you to be in the loop about everything happening i
 - Django
 
 ## License
-MIT &copy;2020 [John Gichuhi](https://github.com/njoroge33/neighborhood/blob/master/LICENSE)
+MIT &copy;2020 [John Gichuhi](https://github.com/njoroge33/neighbourhood/blob/master/LICENSE)
 Neighborhood
 
