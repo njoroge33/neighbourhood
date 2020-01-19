@@ -12,6 +12,7 @@ urlpatterns = [
     re_path(r'^profile/', views.profile, name='profile'),
     re_path(r'^updateprofile/', views.update_profile, name='update_profile'),
     re_path(r'^newbusiness/', views.new_business, name='new_business'),
+    re_path(r'^newpost/', views.new_post, name='new_post'),
 ]
 
 if settings.DEBUG:

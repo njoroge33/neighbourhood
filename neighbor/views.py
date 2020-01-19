@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, ProfileForm, BusinessForm
+from .forms import SignUpForm, ProfileForm, BusinessForm, PostForm
 from .models import Profile, Business
 from django.contrib.auth.forms import UserCreationForm
 
@@ -59,3 +59,17 @@ def new_business(request):
     else:
         form = BusinessForm()
     return render(request, 'business.html', {'current_user':current_user, 'form':form})
+
+def new_post(request):
+    current_user = request.user
+   
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user= current_user
+            post.save()
+        return redirect('home')
+    else:
+        form = PostForm()
+    return render(request, 'new_post.html', {'current_user':current_user, 'form':form})
