@@ -9,6 +9,9 @@ class Neighborhood(models.Model):
     admin = models.ForeignKey(User, on_delete = models.CASCADE)
     health_contacts = models.CharField(max_length = 50)
     police_contacts = models.CharField(max_length = 50)
+
+    def __str__(self):
+        return "%s" % self.name
     
     def create_neighborhood():
         self.save()
