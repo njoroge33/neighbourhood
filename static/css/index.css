@@ -1,5 +1,5 @@
 body {
-    height:90vh;
+    height:100vh;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -11,14 +11,19 @@ body {
     font-family: 'Pattaya', sans-serif;
 }
 
-.navbar-header>a, .navbar-header>a:hover {
+.collapse>a{
     text-decoration: none;
-    color: black;
+    color: grey;
 }
 
-.navbar-header>a:first-child{
+.collapse>a:first-child{
     font-family: 'Pattaya', sans-serif;
     font-size: 22px;
+}
+
+.collapse>a:active{
+    background-color: rgb(172, 169, 173);
+    color: #000;
 }
 
 .update {
