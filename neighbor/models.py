@@ -51,3 +51,9 @@ class Business(models.Model):
         business = cls.objects.all()
         return business
 
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,)
+    pub_date = models.DateTimeField(auto_now_add=True)
+    post_image = models.ImageField(upload_to = 'posts/')
+    caption = models.CharField(max_length=150)
+
